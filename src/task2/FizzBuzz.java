@@ -26,12 +26,11 @@ public class FizzBuzz {
 
     public synchronized void fizz(Runnable fizz) {
         while (currentNumber <= n) {
-            if (currentNumber % 3 == 0 && currentNumber != 0) {
+            if (currentNumber % 3 == 0) {
                 fizz.run();
                 currentNumber++;
                 notifyAll();
-            }
-            else {
+            } else {
                 waiter();
             }
         }
@@ -39,12 +38,11 @@ public class FizzBuzz {
 
     public synchronized void buzz(Runnable buzz) {
         while (currentNumber <= n) {
-            if (currentNumber % 5 == 0 && currentNumber != 0) {
+            if (currentNumber % 5 == 0 && currentNumber % 3 != 0) {
                 buzz.run();
                 currentNumber++;
                 notifyAll();
-            }
-            else {
+            } else {
                 waiter();
             }
         }
@@ -52,12 +50,11 @@ public class FizzBuzz {
 
     public synchronized void fizzBuzz(Runnable fizzBuzz) {
         while (currentNumber <= n) {
-            if (currentNumber % 5 == 0 && currentNumber % 3 == 0 && currentNumber != 0) {
+            if (currentNumber % 15 == 0) {
                 fizzBuzz.run();
                 currentNumber++;
                 notifyAll();
-            }
-            else {
+            } else {
                 waiter();
             }
         }
@@ -69,9 +66,8 @@ public class FizzBuzz {
             if (currentNumber % 3 != 0 && currentNumber % 5 != 0) {
                 number.accept(currentNumber);
                 currentNumber++;
-                notify();
-            }
-            else {
+                notifyAll();
+            } else {
                 waiter();
             }
         }

@@ -6,7 +6,7 @@ import java.util.function.IntConsumer;
 public class Main {
     public static void main(String[] args) {
 
-        FizzBuzz fizzBuzz = new FizzBuzz(22);
+        FizzBuzz fizzBuzz = new FizzBuzz(100);
         Runnable printFizz = () -> System.out.print("fizz ");
         Runnable printBuzz = () -> System.out.print("buzz ");
         Runnable printFizzBuzz = () -> System.out.print("fizzbuzz ");
